@@ -14,7 +14,7 @@ num_gen = randint(1, 10)
 lim_inf= int(sys.argv[3])
 lim_sup = int(sys.argv[4])
 num_gen = randint(lim_inf, lim_sup)
-num_opor = 3
+num_opor = 4
 
 while num_opor > 0:
     try:

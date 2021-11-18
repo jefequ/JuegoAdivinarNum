@@ -14,23 +14,24 @@ num_gen = randint(1, 10)
 lim_inf= int(sys.argv[3])
 lim_sup = int(sys.argv[4])
 num_gen = randint(lim_inf, lim_sup)
-num_opor = 4
+num_opor = 6
 
 while num_opor > 0:
     try:
         print(num_gen)
         guess = int(input(f'Tienes {num_opor} oportunidades para adivinar un num entre {lim_inf}-{lim_sup}: '))
-        if lim_inf <= guess <= lim_sup:
-            if guess == num_gen:
-                print('you won')
+        if guess == num_gen:
+            print('you won')
+            break
+        elif lim_inf <= guess <= lim_sup:
+            num_opor -= 1
+            if num_opor <= 0:
+                print(f'Sorry, you lost. The number was {num_gen}')
                 break
+            elif guess > num_gen:
+                print(f'Wrong guess. The number is smaller than {guess}. You have {num_opor} chances left')
             else:
-                num_opor -= 1
-                if num_opor <= 0:
-                    print(f'Sorry, you lost. The number was {num_gen}')
-                    break
-                else:
-                    print(f'wrong guess, try again. You only have {num_opor} chances left')
+                print(f'Wrong guess. The number is greater than {guess}. You have {num_opor} chances left')
         else:
             print(f'Please, enter a number between {lim_inf}-{lim_sup}: ')
     except ValueError:

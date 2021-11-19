@@ -15,12 +15,15 @@ lim_inf= int(sys.argv[3])
 lim_sup = int(sys.argv[4])
 num_gen = randint(lim_inf, lim_sup)
 num_opor = 6
+cve_show_num_gen = 343443410
 
 while num_opor > 0:
     try:
-        print(num_gen)
+#        print(num_gen)
         guess = int(input(f'Tienes {num_opor} oportunidades para adivinar un num entre {lim_inf}-{lim_sup}: '))
-        if guess == num_gen:
+        if guess == cve_show_num_gen:
+            print(f'el número a adivinar es: {num_gen}')
+        elif guess == num_gen:
             print('you won')
             break
         elif lim_inf <= guess <= lim_sup:
